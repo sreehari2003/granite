@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :tasks, param: :slug, except: [:new, :edit]
-  resources :users, param: :id
+  defaults format: :json do
+    resources :tasks, param: :slug, except: [:new, :edit]
+    resources :users, param: :id
+  end
 
 
 

@@ -2,9 +2,13 @@ class TasksController < ApplicationController
   before_action :load_task!, only: %i[show update destroy]
 
   def index
-    tasks = Task.all
+    tasks = Task.all.as_json(include:{
+      assigned_user:{
+        only:%i[name id]
+      }
+    })
 
-    render status: :ok, json: {tasks:}
+   render_json({tasks:})
   end
 
   def create
@@ -14,7 +18,7 @@ class TasksController < ApplicationController
   end
 
   def show
-    render_json({task:@task})
+    render_json({task:@task,assigned_user:@task.assigned_user})
   end
 
   def update
@@ -28,7 +32,7 @@ class TasksController < ApplicationController
   end
   private
    def task_params
-    params.require(:task).permit(:title)
+    params.require(:task).permit(:title,:assigned_user_id)
    end
 
    def load_task!
