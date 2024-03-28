@@ -8,6 +8,7 @@ gem "rails", "~> 7.0.5"
 
 gem 'pundit'
 
+gem 'bcrypt', '~> 3.1.13'
 
 gem 'react-rails', "~> 2.7.1"
 

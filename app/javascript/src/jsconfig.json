@@ -7,12 +7,6 @@
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
     "baseUrl": ".",
-    "paths": {
-      "neetoui/*": ["../../../node_modules/@bigbinary/neetoui/*"],
-      "neetoui": ["../../../node_modules/@bigbinary/neetoui"],
-      "neetoicons/*": ["../../../node_modules/@bigbinary/neeto-icons/*"],
-      "neetoicons": ["../../../node_modules/@bigbinary/neeto-icons"]
-    },
     "pretty": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,

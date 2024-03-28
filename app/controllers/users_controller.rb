@@ -9,9 +9,13 @@ class UsersController < ApplicationController
     render status: :ok,json: { user: }
   end
 
+  def create
+    user = User.new(user_params)
+    user.save!
+    render_notice(t("successfully_created", entity: "User"))
 
   private
    def user_params
-    params.require(:id)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
    end
 end
