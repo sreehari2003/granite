@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  defaults format: :json do
+  constraints(lambda { |req| req.format == :json }) do
     resources :tasks, param: :slug, except: [:new, :edit]
     resources :users, only: %i[index create]
+    resource  :session, only: :create
   end
 
 
